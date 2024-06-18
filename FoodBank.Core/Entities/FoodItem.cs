@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 public class FoodItem
 {
@@ -23,6 +24,7 @@ public class FoodItem
     public int CategoryId { get; set; }
 
     [ForeignKey("CategoryId")]
+    [JsonIgnore]
     public FoodCategory Category { get; set; }
 
     [StringLength(200)]
@@ -41,6 +43,6 @@ public class FoodItem
     public DateTime CreatedAt { get; set; }
 
     public DateTime UpdatedAt { get; set; }
-
+    [JsonIgnore]
     public ICollection<OrderItem> OrderItems { get; set; }
 }

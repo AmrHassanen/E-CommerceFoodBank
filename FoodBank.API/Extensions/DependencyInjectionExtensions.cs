@@ -12,6 +12,8 @@ namespace FoodBank.API.Extensions
             {
                 services.AddScoped<IAuthUser, AuthUser>();
                 services.AddScoped<IPhotoService, PhotoService>();
+                services.AddScoped<IFoodItemService, FoodItemService>();
+                services.AddAutoMapper(typeof(FoodItemProfile));
             }
         }
     
